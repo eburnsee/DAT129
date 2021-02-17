@@ -1,8 +1,4 @@
-
 def create_icon():
-	print("Hello and welcome. You may use this program to display your icon.\nYou will be prompted to enter ten lines of TEN ones and zeros.")
-	row_name_list = ["one", "two" , "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
-	row_list=[]
 	# loop through all ten rows
 	for row in row_name_list:
 		# get input for each row
@@ -17,25 +13,59 @@ def create_icon():
 					# restart the program if the test fails
 					create_icon()
 				else:
-					continue
-			# if both tests pass, the input will be saved into row_list
-			row_list.append(row_input)
-		else:
-			print("You failed to enter ten ones and zeros. Please try again.")
-			# if the length test fails, restart the program
-			create_icon()
+					icon_row_list.append(row_input)
+	else:
+		print("You failed to enter ten ones and zeros. Please try again.")
+		# if the length test fails, restart the program
+		create_icon()
+	return icon_row_list
+	
+def display_icon():
+	# print the icon
+	for row in icon_row_list:
+		print(row)
+
+def scale_icon():
 	# see if the user would like to scale the icon
-	scaled_rows = input("Would you like to scale your icon? (yes/no)")
+	scaled_rows = input("Would you like to scale your icon? (yes/no) ")
 	if scaled_rows.lower() == "yes":
-		print("Thinking")
+		scaling_int=int(input("Choose an integer by which to scale? "))
+		for row in icon_row_list:
+			scaled_list = []
+			combined_list = []
+			row_list=list(row)
+			# print(row_list)
+			for char in row_list:
+				num_row = char[:]*scaling_int
+				scaled_list.append(num_row)
+			print(*scaled_list, sep="")
+			print(*scaled_list, sep="")
+			print(*scaled_list, sep="")
+			print(*scaled_list, sep="")
+			print(*scaled_list, sep="")
 	elif scaled_rows.lower() == "no":
-		# print the icon
-		for row_inp in row_list:
-			print(row_inp)
+		print("Keep it simple, then.")
 
 
+def invert_icon():
+	invert_rows = input("Would you like to invert the icon? (y/n) ")
+	if invert_rows.lower() == "yes":
+		for row in icon_row_list:
+			print(row[::-1])
+	elif invert_rows.lower() == "no":
+		print("Keep it simple, then.")
+	else:
+		invert_icon()
+
+
+print("Hello and welcome. You may use this program to display your icon.\nYou will be prompted to enter ten lines of TEN ones and zeros.")
+row_name_list = ["one", "two" , "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
+icon_row_list = []
 
 create_icon()
+display_icon()
+scale_icon()
+invert_icon()
 	
 
 
