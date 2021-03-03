@@ -1,4 +1,4 @@
-def icon_icon():
+def create_icon():
 	for row in row_name_list:
 		while True:
 			row_input = input("Please enter ten characters (zeros and ones only, please!) for row " + row + ": ")
@@ -9,30 +9,6 @@ def icon_icon():
 				print("You failed to enter ONLY ten ones and zeros. Please try again.")
 				final_row_list.clear()
 				continue
-
-# def create_icon():
-# 	temp_row_list.clear()
-# 	# loop through all ten rows
-# 	for row in row_name_list:
-# 		# get input for each row
-# 		row_input = input("Please enter ten characters (zeros and ones only, please!) for row " + row + ": ")
-# 		temp_row_list.append(row_input)
-
-# def test_user_input():
-# 	for row in temp_row_list:
-# 		print(row)
-# 		for digit in list(row):
-# 			if (digit != "0") and (digit != "1"):
-# 				print("You failed to enter ONLY ten ones and zeros. Please try again.")
-# 				# restart the program if the test fails
-# 				create_icon()
-# 		if len(row) == 10:
-# 			final_row_list.append(row)
-# 		else:
-# 			print("You failed to enter ONLY ten ones and zeros. Please try again.")
-# 			# restart the program if the test fails
-# 			break
-# 			create_icon()
 	
 def display_icon():
 	# print the icon
@@ -74,12 +50,9 @@ def invert_icon():
 
 print("Hello and welcome. You may use this program to display your icon.\nYou will be prompted to enter ten lines of TEN ones and zeros.")
 row_name_list = ["one", "two" , "three", "four", "five", "six", "seven", "eight", "nine", "ten"]
-temp_row_list = []
 final_row_list = []
 
-icon_icon()
-# create_icon()
-# test_user_input()
+create_icon()
 display_icon()
 scale_icon()
 invert_icon()
