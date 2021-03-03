@@ -1,9 +1,15 @@
 def create_icon():
+	# loop through to make ten element rows in a list
 	for row in row_name_list:
+		# loop until we have ten rows of length 10 composed of only 1s and 0s
 		while True:
+			# gather input
 			row_input = input("Please enter ten characters (zeros and ones only, please!) for row " + row + ": ")
+			# check if input meets requirements
 			if (len(row_input) == 10) and all(((digit == "0") or (digit == "1") for digit in list(row_input))):
+				# add input to list
 				final_row_list.append(row_input)
+				# break out of while loop
 				break
 			else:
 				print("You failed to enter ONLY ten ones and zeros. Please try again.")
